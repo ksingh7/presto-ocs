@@ -25,9 +25,14 @@ spec:
     cpuRequest: ''
     memoryAllocation: ''
   worker:
-    count: 3
-    cpuLimit: ''
-    cpuRequest: ''
+    autoscaling:
+      enabled: true
+      maxReplicas: 100
+      minReplicas: 1
+      targetCPUUtilizationPercentage: 80
+    count: 2
+    cpuLimit: '4'
+    cpuRequest: '4'
     memoryAllocation: ''
     prestoWorkerShutdownGracePeriodSeconds: 1
   hive:
@@ -61,3 +66,5 @@ spec:
       connection-password=redhat
     tpcds: |
       connector.name=tpcds
+    jmx: |
+      connector.name=jmx
