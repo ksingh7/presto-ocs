@@ -44,6 +44,7 @@ spec:
       hive.s3.staging-directory=/tmp
       hive.s3.ssl.enabled=false
       hive.s3.sse.enabled=false
+      hive.allow-drop-table=true
     awsSecretName: prestodb
     internalMetastore:
       cpu: 0.5
